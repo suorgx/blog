@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply h-screen overflow-hidden flex flex-col;
+}
+
+main,
+footer,
+header {
+    @apply container mx-auto py-3 sm:py-6 px-2 sm:px-4;
+}
+
+main {
+    @apply basis-full overflow-auto;
+}
