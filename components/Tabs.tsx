@@ -20,7 +20,7 @@ export default function Tabs({ tabsItems }: Props) {
       {tabsItems.map((item) => (
         <li className="mr-2" key={item.href}>
           <Link
-            className={`inline-block p-3 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 ${pathname === item.href ? 'text-blue-600 bg-gray-100' : ''}`}
+            className={`inline-block p-3 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 ${pathname === item.href ? 'text-gray-600 bg-gray-50' : ''}`}
             href={item.href}
           >
             {item.name}
