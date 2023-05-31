@@ -1,36 +1,43 @@
-import Link from 'next/link'
+'use client'
 
-async function getPosts() {
-  const response = await fetch('https://jsonplaceholder.typicode.com/posts/')
+import { useState, useEffect } from 'react'
+import PostItem from '@/components/PostItem'
+import { getPosts } from '@/services/getPosts'
 
-  if (!response.ok) throw await new Error('unable to fetch')
+export default function Blog() {
+  const [posts, setPosts] = useState<any[]>([])
+  const [loading, setLoading] = useState(true)
 
-  return response.json()
-}
+  useEffect(() => {
+    setLoading(true)
+    getPosts()
+      .then(setPosts)
+      .finally(() => {
+        setLoading(false)
+      })
+  }, []);
 
-export const metadata = {
-  title: 'Blog | Next App'
-}
-
-export default async function Blog() {
-  const posts = await getPosts()
+  console.log(posts)
 
   return (
     <>
       <div className='text-2xl'>
         Blog
       </div>
-      <ul className="mt-6 max-w-md space-y-1 text-gray-500 list-inside">
-        {posts.map((post: any) => (
-          <li key={post.id}>
-            <Link className='flex items-start gap-1 text-gray-900' href={`/blog/${post.id}`}>
-              <span className='font-semibold'>{post.id}</span>
-              <span className='hover:underline'>{post.title}</span>
-            </Link>
-          </li>
-          )
-        )}
-      </ul>
+      {
+        !loading
+          ?
+          <ul className="mt-6 max-w-md space-y-1 text-gray-500 list-inside">
+            {posts.map((post: any, index) => (
+                <PostItem post={post} key={index}></PostItem>
+              )
+            )}
+          </ul>
+          :
+          <div className='mt-6 text-2xl'>
+            Loading...
+          </div>
+      }
     </>
   )
 }
