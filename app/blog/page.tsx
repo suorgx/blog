@@ -15,9 +15,7 @@ export default function Blog() {
       .finally(() => {
         setLoading(false)
       })
-  }, []);
-
-  console.log(posts)
+  }, [])
 
   return (
     <>
