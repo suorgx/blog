@@ -23,7 +23,7 @@ export default function Search({onSearch}: Props) {
         id='search'
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className='w-full flex-1 appearance-none rounded-lg border border-transparent border-gray-400 bg-white px-4 py-2 text-base text-gray-700 shadow-sm placeholder-gray-400 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-600'
+        className='w-full flex-1 appearance-none rounded-lg border border-gray-400 bg-white px-4 py-2 text-base text-gray-700 shadow-sm placeholder-gray-400 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-600'
         placeholder='Search'
       />
       <button
