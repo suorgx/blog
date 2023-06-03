@@ -1,14 +1,10 @@
 'use client'
 
 import Link from 'next/link'
-
-type Post = {
-  id: string;
-  title: string;
-}
+import { post } from '@/interfaces/post'
 
 type Props = {
-  post: Post
+  post: post
 }
 
 export default function PostItem({ post }: Props) {

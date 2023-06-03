@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const metadata = {
-  title: 'Blog | Next App'
+  title: 'Post | Next App'
 }
 
 export default function RootLayout({
